@@ -1,0 +1,27 @@
+:root {
+    --paddle-width: 50px;
+    --paddle-height: 100px;
+    --paddle-gap: 5px;
+    --ball-size: 40px;
+}
+
+.paddle {
+    position: absolute;
+    top: 40%;
+    width: var(--paddle-width);
+    height: var(--paddle-height);
+    background: black;
+}
+.paddle__left {
+    left: var(--paddle-gap);
+}
+.paddle__right {
+    left: calc(100vw - var(--paddle-gap) - var(--paddle-width));
+}
+
+.ball {
+    width: var(--ball-size);
+    height: var(--ball-size);
+    background: red;
+    border-radius: 50%;
+}
