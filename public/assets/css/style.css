@@ -7,10 +7,11 @@
 
 .paddle {
     position: absolute;
-    top: 40%;
     width: var(--paddle-width);
     height: var(--paddle-height);
     background: black;
+    margin: 5px 0;
+    box-sizing: border-box;
 }
 .paddle__left {
     left: var(--paddle-gap);
