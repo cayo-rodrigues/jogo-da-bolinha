@@ -23,4 +23,5 @@ body {
     height: var(--ball-size);
     background: red;
     border-radius: 50%;
+    position: absolute;
 }
