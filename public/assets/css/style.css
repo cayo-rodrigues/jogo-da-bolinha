@@ -1,8 +1,11 @@
 :root {
-    --paddle-width: 50px;
-    --paddle-height: 100px;
-    --paddle-gap: 5px;
-    --ball-size: 40px;
+    --paddle-width: 125px;
+    --paddle-height: 30px;
+    --ball-size: 30px;
+}
+
+body {
+    margin: 0;
 }
 
 .paddle {
@@ -10,14 +13,9 @@
     width: var(--paddle-width);
     height: var(--paddle-height);
     background: black;
-    margin: 5px 0;
+    margin: 0px 5px 5px;
+    bottom: 0;
     box-sizing: border-box;
-}
-.paddle__left {
-    left: var(--paddle-gap);
-}
-.paddle__right {
-    left: calc(100vw - var(--paddle-gap) - var(--paddle-width));
 }
 
 .ball {
