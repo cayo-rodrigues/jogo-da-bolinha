@@ -1,27 +1,4 @@
-:root {
-    --paddle-width: 125px;
-    --paddle-height: 30px;
-    --ball-size: 30px;
-}
-
 body {
     margin: 0;
-}
-
-.paddle {
-    position: absolute;
-    width: var(--paddle-width);
-    height: var(--paddle-height);
-    background: black;
-    margin: 0px 5px 5px;
-    bottom: 0;
-    box-sizing: border-box;
-}
-
-.ball {
-    width: var(--ball-size);
-    height: var(--ball-size);
-    background: red;
-    border-radius: 50%;
-    position: absolute;
+    overflow: hidden;
 }

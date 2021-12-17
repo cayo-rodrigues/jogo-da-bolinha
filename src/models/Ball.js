@@ -1,39 +1,57 @@
 class Ball {
-    constructor() {
-        this.positionX          = (window.innerWidth / 2) - 15
-        this.positionY          = (window.innerHeight / 2) - 15
+    constructor(context, container) {
+        this.ctx                = context
+        this.container          = container
+        this.size               = 15
+        this.positionX          = (container.width / 2) - (this.size / 2)
+        this.positionY          = (container.height / 2) - (this.size / 2)
         this.speedX             = 5
-        this.speedY             = 5
-        this.ball               = document.createElement('div')
-        this.ball.className     = 'ball'
-        this.ball.style.left    = `${this.positionX}px`
-        this.ball.style.top     = `${this.positionY}px`
+        this.speedY             = -5
+        this.looser             = false
+    }
+
+    draw() {
+        this.ctx.beginPath()
+        this.ctx.fillStyle = 'red'
+        this.ctx.arc(this.positionX, this.positionY, this.size, 0, 2 * Math.PI)
+        this.ctx.fill()
     }
 
     moveBall() {
-        this.detectCollision()
+        this.detectEdgeCollision()
 
         this.positionX += this.speedX
         this.positionY += this.speedY
-
-        this.ball.style.left = `${this.positionX}px`
-        this.ball.style.top  = `${this.positionY}px`
     }
 
-    detectCollision() {
+    detectEdgeCollision() {
         // invert X direction
-        if (window.innerWidth - this.positionX - this.ball.clientWidth - this.speedX < 0 || this.positionX + this.speedX <= 0) {
+        if (this.container.width - this.positionX - this.size <= 0 || this.positionX - this.size <= 0) {
             this.speedX = -this.speedX
         }
         // invert Y direction
-        if (this.positionY + this.speedY <= 0) {
+        if (this.positionY - this.size <= 0) {
             this.speedY = -this.speedY
         }
 
         // looser
-        if (window.innerHeight - this.positionY - this.ball.clientHeight - this.speedY < 0) {
+        if (this.container.height - this.positionY - this.size <= 0) {
             this.speedY = -this.speedY
             console.log('you lose')
+            // this.looser = true
+        }
+    }
+
+    detectPaddleCollision(paddle) {
+        let distanceY = this.positionY - paddle.positionY
+        let distanceX = this.positionX - paddle.positionX
+        let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY)
+        console.log(distance)
+
+        if (distance < this.ball.clientHeight + paddle.paddle.clientHeight + 10) {
+            console.log(this.ball.clientHeight, paddle.paddle.clientHeight + 10)
+            console.log('collision!')
+            this.speedY = -this.speedY
         }
     }
 }
