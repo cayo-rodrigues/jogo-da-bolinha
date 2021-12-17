@@ -36,14 +36,14 @@ function startGame() {
     context.fillStyle = '#FFF'
     context.fillRect(0, 0, canvas.width, canvas.height)
 
-    if (ball.looser) {
-        return
-    }
+    if (ball.looser) return
+
     ball.draw()
-    // ball.detectPaddleCollision(paddle)
+    paddle.draw()
+
+    ball.detectPaddleCollision(paddle)
     ball.moveBall()
 
-    paddle.draw()
     for (let key in pressedKeys) {
         if (pressedKeys[key]) {
             paddle.movePaddle(key)

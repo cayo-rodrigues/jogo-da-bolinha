@@ -36,22 +36,23 @@ class Ball {
 
         // looser
         if (this.container.height - this.positionY - this.size <= 0) {
-            this.speedY = -this.speedY
             console.log('you lose')
-            // this.looser = true
+            this.looser = true
         }
     }
 
     detectPaddleCollision(paddle) {
-        let distanceY = this.positionY - paddle.positionY
-        let distanceX = this.positionX - paddle.positionX
-        let distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY)
-        console.log(distance)
+        let distanceY = this.container.height - this.positionY - this.size - paddle.sizeY - paddle.gap
 
-        if (distance < this.ball.clientHeight + paddle.paddle.clientHeight + 10) {
-            console.log(this.ball.clientHeight, paddle.paddle.clientHeight + 10)
-            console.log('collision!')
-            this.speedY = -this.speedY
+        let distanceXLeftToRight = paddle.positionX - (this.positionX + this.size)
+        let distanceXRightToLeft = (this.positionX - this.size) - (paddle.positionX + paddle.sizeX)
+
+        if (distanceXLeftToRight <= 0 && distanceXRightToLeft <= 0) {
+            if (distanceY < 1 && distanceY > -1) {
+                this.speedY = -this.speedY
+            } else if (distanceY < -1) {
+                this.speedX = -this.speedX
+            }
         }
     }
 }

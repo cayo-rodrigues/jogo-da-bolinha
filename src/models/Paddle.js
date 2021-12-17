@@ -1,11 +1,12 @@
 class Paddle {
     constructor(context, container) {
+        this.gap                = 5
         this.sizeX              = 125
         this.sizeY              = 30
         this.ctx                = context
         this.container          = container
         this.positionX          = (container.width / 2) - (this.sizeX / 2)
-        this.positionY          = (container.height - this.sizeY) - 5
+        this.positionY          = (container.height - this.sizeY) - this.gap
         this.speed              = 5
     }
 
