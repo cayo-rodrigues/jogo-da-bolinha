@@ -1,5 +1,6 @@
 class Game {
     constructor() {
+        this.score       = 0
         this.pressedKeys = {'ArrowLeft': false, 'ArrowRight': false}
         this.animationRequest = 0
     }
@@ -8,15 +9,23 @@ class Game {
         const container = document.querySelector('.game-over-container')
         const div       = document.createElement('div')
         const h1        = document.createElement('h1')
-        const btn       = document.createElement('button')
+        const span       = document.createElement('span')
 
         div.className   = 'game-over-msg'
         h1.innerText    = 'Game Over'
-        btn.innerText   = 'Press Enter/Return to reset'
+        span.innerText  = 'Press Enter/Return to reset'
 
-        div.append(h1, btn)
+        div.append(h1, span)
         container.innerHTML = ''
         container.append(div)
+    }
+
+    displayCurrentScore(container) {
+        container.innerHTML = `<h3>Score: ${this.score}</h3>`
+    }
+
+    resetScore() {
+        this.score = 0
     }
 }
 

@@ -38,6 +38,7 @@ function resetGame() {
     const gameOverMsg = document.querySelector('.game-over-msg')
     if (gameOverMsg) gameOverMsg.remove()
 
+    game.resetScore()
     ball.reset()
     paddle.reset()
 
@@ -47,6 +48,9 @@ function resetGame() {
 function startGame() {
     context.fillStyle = '#FFF'
     context.fillRect(0, 0, canvas.width, canvas.height)
+
+    game.score++
+    game.displayCurrentScore(document.querySelector('header'))
 
     ball.draw()
     paddle.draw()
