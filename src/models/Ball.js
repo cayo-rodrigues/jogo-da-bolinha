@@ -4,6 +4,7 @@ class Ball {
         this.container         = container
         this.size              = 15
         this.speed             = 5
+        this.bouncingSound     = new Audio('../../public/assets/soundFx/pingPongBounce.wav')
         this.reset()
     }
 
@@ -24,10 +25,12 @@ class Ball {
     detectEdgeCollision() {
         // invert X direction
         if (this.container.width - this.positionX - this.size <= 0 || this.positionX - this.size <= 0) {
+            this.playSound()
             this.dirX = -this.dirX
         }
         // invert Y direction
         if (this.positionY - this.size <= 0) {
+            this.playSound()
             this.dirY = -this.dirY
         }
 
@@ -47,8 +50,10 @@ class Ball {
 
         if (distanceXLeftToRight <= 0 && distanceXRightToLeft <= 0) {
             if (distanceY < 1 && distanceY > -1) {
+                this.playSound()
                 this.dirY = -this.dirY
             } else if (distanceY < -1) {
+                this.playSound()
                 this.dirX = -this.dirX
             }
         }
@@ -56,6 +61,11 @@ class Ball {
 
     randomDirection() {
         return (Math.floor(Math.random() * (1 - 0 + 1)) + 0) === 0 ? 1 : -1
+    }
+
+    playSound() {
+        this.bouncingSound.currentTime = 0
+        this.bouncingSound.play()
     }
 
     reset() {

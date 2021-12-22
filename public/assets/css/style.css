@@ -39,9 +39,6 @@ header h3 {
     border: 3px double black;
     box-shadow: 0px 0px 10px gray;
 }
-.game-over-msg span:active {
-    transform: scale(0.95);
-}
 
 @keyframes game-over {
     from {
