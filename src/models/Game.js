@@ -1,8 +1,9 @@
 class Game {
     constructor() {
-        this.score       = 0
+        this.score        = 0
         this.pressedKeys = {'ArrowLeft': false, 'ArrowRight': false}
         this.animationRequest = 0
+        this.updateHighestScore()
     }
 
     displayGameOverMsg() {
@@ -26,6 +27,23 @@ class Game {
 
     resetScore() {
         this.score = 0
+    }
+
+    updateHighestScore() {
+        this.highestScore = localStorage.getItem('highestScore')
+
+        if (this.highestScore) {
+            if (this.highestScore < this.score) {
+                this.highestScore = this.score
+            }
+        } else {
+            this.highestScore = this.score
+        }
+        localStorage.setItem('highestScore', this.highestScore)
+    }
+
+    displayHighestScore(container) {
+        container.innerHTML = `<h3>Highest Score: ${this.highestScore}</h3>`
     }
 }
 

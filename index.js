@@ -3,6 +3,8 @@ import { Ball } from "./src/models/Ball.js"
 import { Game } from "./src/models/Game.js"
 
 const game = new Game()
+const infoBar = document.querySelector('header')
+game.displayHighestScore(infoBar.querySelector('.highest-score'))
 
 // where the elements are drawn
 const canvas = document.querySelector('canvas')
@@ -38,7 +40,10 @@ function resetGame() {
     const gameOverMsg = document.querySelector('.game-over-msg')
     if (gameOverMsg) gameOverMsg.remove()
 
+    game.updateHighestScore()
+    game.displayHighestScore(infoBar.querySelector('.highest-score'))
     game.resetScore()
+
     ball.reset()
     paddle.reset()
 
@@ -50,7 +55,7 @@ function startGame() {
     context.fillRect(0, 0, canvas.width, canvas.height)
 
     game.score++
-    game.displayCurrentScore(document.querySelector('header'))
+    game.displayCurrentScore(infoBar.querySelector('.current-score'))
 
     ball.draw()
     paddle.draw()
