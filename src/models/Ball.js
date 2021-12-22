@@ -72,7 +72,7 @@ class Ball {
         this.positionX = (this.container.width / 2) - (this.size / 2)
         this.positionY = (this.container.height / 2) - (this.size / 2)
         this.dirX      = this.randomDirection()
-        this.dirY      = -1
+        this.dirY      = this.randomDirection()
         this.looser    = false
     }
 }

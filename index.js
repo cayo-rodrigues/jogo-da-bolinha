@@ -75,4 +75,4 @@ function startGame() {
     }
     game.animationRequest = requestAnimationFrame(startGame)
 }
-startGame()
+// startGame()
