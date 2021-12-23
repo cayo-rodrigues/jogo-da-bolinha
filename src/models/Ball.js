@@ -4,6 +4,7 @@ class Ball {
         this.container         = container
         this.size              = 15
         this.speed             = 5
+        this.minDistanceDiff   = -5
         this.bouncingSound     = new Audio('../../public/assets/soundFx/pingPongBounce.wav')
         this.reset()
     }
@@ -49,10 +50,10 @@ class Ball {
         let distanceXRightToLeft = (this.positionX - this.size) - (paddle.positionX + paddle.sizeX)
 
         if (distanceXLeftToRight <= 0 && distanceXRightToLeft <= 0) {
-            if (distanceY < 1 && distanceY > -5) {
+            if (distanceY < 1 && distanceY > this.minDistanceDiff) {
                 this.playSound()
                 this.dirY = -this.dirY
-            } else if (distanceY < -5) {
+            } else if (distanceY < this.minDistanceDiff) {
                 this.playSound()
                 this.dirX = -this.dirX
             }
@@ -69,11 +70,13 @@ class Ball {
     }
 
     reset() {
-        this.positionX = (this.container.width / 2) - (this.size / 2)
-        this.positionY = (this.container.height / 2) - (this.size / 2)
-        this.dirX      = this.randomDirection()
-        this.dirY      = this.randomDirection()
-        this.looser    = false
+        this.positionX       = (this.container.width / 2) - (this.size / 2)
+        this.positionY       = (this.container.height / 2) - (this.size / 2)
+        this.dirX            = this.randomDirection()
+        this.dirY            = -1
+        this.speed           = 5
+        this.looser          = false
+        this.minDistanceDiff = -5
     }
 }
 

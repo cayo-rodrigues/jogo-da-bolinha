@@ -1,6 +1,7 @@
 class Game {
     constructor() {
-        this.score        = 0
+        this.difficulty  = 1
+        this.score       = 0
         this.pressedKeys = {'ArrowLeft': false, 'ArrowRight': false}
         this.animationRequest = 0
         this.updateHighestScore()
@@ -44,6 +45,18 @@ class Game {
 
     displayHighestScore(container) {
         container.innerHTML = `<h3>Highest Score: ${this.highestScore}</h3>`
+    }
+
+    updateDifficulty(paddle, ball) {
+        if (this.score % 1000 === 0) {
+            ball.speed += 1
+            paddle.speed += 1
+            this.difficulty++
+            console.log('ball speed = ' + ball.speed)
+        }
+        if (this.difficulty % 6 === 0) {
+            ball.minDistanceDiff -= 5
+        }
     }
 }
 

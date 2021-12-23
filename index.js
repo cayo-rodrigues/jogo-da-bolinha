@@ -55,6 +55,7 @@ function startGame() {
     context.fillRect(0, 0, canvas.width, canvas.height)
 
     game.score++
+    game.updateDifficulty(paddle, ball)
     game.displayCurrentScore(infoBar.querySelector('.current-score'))
 
     ball.draw()

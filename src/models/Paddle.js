@@ -32,6 +32,7 @@ class Paddle {
     reset() {
         this.positionX = (this.container.width / 2) - (this.sizeX / 2)
         this.positionY = (this.container.height - this.sizeY) - this.gap
+        this.speed     = 5
     }
 }
 
