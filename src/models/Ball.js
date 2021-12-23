@@ -49,10 +49,10 @@ class Ball {
         let distanceXRightToLeft = (this.positionX - this.size) - (paddle.positionX + paddle.sizeX)
 
         if (distanceXLeftToRight <= 0 && distanceXRightToLeft <= 0) {
-            if (distanceY < 1 && distanceY > -1) {
+            if (distanceY < 1 && distanceY > -5) {
                 this.playSound()
                 this.dirY = -this.dirY
-            } else if (distanceY < -1) {
+            } else if (distanceY < -5) {
                 this.playSound()
                 this.dirX = -this.dirX
             }
