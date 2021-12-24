@@ -43,6 +43,7 @@ function resetGame() {
     game.updateHighestScore()
     game.displayHighestScore(infoBar.querySelector('.highest-score'))
     game.resetScore()
+    game.resetDifficulty()
 
     ball.reset()
     paddle.reset()

@@ -57,6 +57,10 @@ class Game {
             ball.minDistanceDiff -= 5
         }
     }
+
+    resetDifficulty() {
+        this.difficulty = 1
+    }
 }
 
 export {Game}
