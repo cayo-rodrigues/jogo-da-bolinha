@@ -58,6 +58,8 @@ function startGame() {
     game.score++
     game.updateDifficulty(paddle, ball)
     game.displayCurrentScore(infoBar.querySelector('.current-score'))
+    game.updateHighestScore()
+    game.displayHighestScore(infoBar.querySelector('.highest-score'))
 
     ball.draw()
     paddle.draw()
