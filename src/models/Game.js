@@ -52,7 +52,6 @@ class Game {
             ball.speed += 1
             paddle.speed += 1
             this.difficulty++
-            console.log('ball speed = ' + ball.speed)
         }
         if (this.difficulty % 6 === 0) {
             ball.minDistanceDiff -= 5
