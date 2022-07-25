@@ -10,4 +10,4 @@ Após jogar por um pouquinho talvez você perceba que existe um padrão para os 
 
 ## URL do projeto
 
-https://cayo-rodrigues.github.io/paddle-game/
+https://cayo-rodrigues.github.io/jogo-da-bolinha/
