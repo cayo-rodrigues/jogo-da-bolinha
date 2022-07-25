@@ -1,4 +1,4 @@
-# Paddle Game
+# Jogo da bolinha
 
 Este joguinho simples foi feito usando conceitos de orientação a objeto. O objetivo é não deixar a bolinha cair. Conforme o tempo passa, mais pontos o jogador acumula, mas a bolinha também vai ficando mais rápida.
 
