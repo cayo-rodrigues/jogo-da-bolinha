@@ -4,4 +4,10 @@ Este joguinho simples foi feito usando conceitos de orientação a objeto. O obj
 
 Para começar o jogo, pressione a tecla `Enter`. Se você pressionar essa tecla novamente, a qualquer momento, o jogo será reiniciado (experimente segurar `Enter`, é engraçado). 
 
-Desenvolvi esse projeto quando aprendi sobre classes em javascript, e decidi praticar assim. Por mais que seja algo bem básico, foi bem divertido.
+Desenvolvi esse projeto quando aprendi sobre classes em javascript, e decidi praticar assim. Por mais que seja algo bem básico, foi bem divertido de fazer.
+
+Após jogar por um pouquinho talvez você perceba que existe um padrão para os movimentos da bola. Ela segue esse padrão porque o ângulo que ela inicia é sempre o mesmo, o que varia é apenas a direção. Uma possível adição futura seria possibilitar mais variações nesse sentido.
+
+## URL do projeto
+
+https://cayo-rodrigues.github.io/paddle-game/
