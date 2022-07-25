@@ -2,9 +2,11 @@ import { Paddle } from "./src/models/Paddle.js"
 import { Ball } from "./src/models/Ball.js"
 import { Game } from "./src/models/Game.js"
 
-const game = new Game()
 const infoBar = document.querySelector('header')
+
+const game = new Game()
 game.displayHighestScore(infoBar.querySelector('.highest-score'))
+game.displayInstructions()
 
 // where the elements are drawn
 const canvas = document.querySelector('canvas')
@@ -39,6 +41,9 @@ function resetGame() {
 
     const gameOverMsg = document.querySelector('.game-over-msg')
     if (gameOverMsg) gameOverMsg.remove()
+
+    const instructionsList = document.querySelector('.instructions-list')
+    if (instructionsList) instructionsList.remove()
 
     game.updateHighestScore()
     game.displayHighestScore(infoBar.querySelector('.highest-score'))
