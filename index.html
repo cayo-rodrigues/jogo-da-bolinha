@@ -23,12 +23,26 @@
   </head>
   <body>
     <header>
-      <div class="highest-score"></div>
-      <div class="current-score"></div>
+      <div id="highest-score"></div>
+      <div id="current-score"></div>
     </header>
     <main>
-      <section class="game-over-container"></section>
-      <section class="instructions-container"></section>
+      <section id="game-over-container"></section>
+      <section id="instructions-container"></section>
+
+      <button class="arrow-btn arrow-btn__left" data-key="ArrowLeft">
+        <img
+          src="./public/assets/images/arrow-left-solid.svg"
+          alt="arrow pointing left"
+        />
+      </button>
+      <button class="arrow-btn arrow-btn__right" data-key="ArrowRight">
+        <img
+          src="./public/assets/images/arrow-right-solid.svg"
+          alt="arrow pointing right"
+        />
+      </button>
+
       <canvas>
         <!-- game goes here -->
       </canvas>

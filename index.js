@@ -5,7 +5,7 @@ import { Game } from "./src/models/Game.js"
 const infoBar = document.querySelector('header')
 
 const game = new Game()
-game.displayHighestScore(infoBar.querySelector('.highest-score'))
+game.displayHighestScore(infoBar.querySelector('#highest-score'))
 game.displayInstructions()
 
 // where the elements are drawn
@@ -21,32 +21,54 @@ const paddle = new Paddle(context, canvas)
 const ball = new Ball(context, canvas)
 
 // listen for key presses
-document.addEventListener('keydown', (event) => {
-    if (Object.keys(game.pressedKeys).includes(event.code)) {
-        game.pressedKeys[event.code] = true
+document.addEventListener('keydown', handleKeyPresses)
+// listen for key releases
+document.addEventListener('keyup', handleKeyPresses)
+
+// listen for arrow buttons presses and releases (mobile)
+document.querySelectorAll('.arrow-btn').forEach((btn) => {
+    btn.addEventListener('touchstart', handleTouches)
+    btn.addEventListener('touchend', handleTouches)
+})
+
+
+function handleKeyPresses(event) {
+    const isKeyDown = event.type === 'keydown'
+
+    if (event.code in game.pressedKeys) {
+        game.pressedKeys[event.code] = isKeyDown
     }
-    if (event.key === 'Enter') {
+    if (isKeyDown && event.key === 'Enter') {
         resetGame()
     }
-})
-// listen for key releases
-document.addEventListener('keyup', (event) => {
-    if (Object.keys(game.pressedKeys).includes(event.code)) {
-        game.pressedKeys[event.code] = false
+}
+
+
+function handleTouches(event) {
+    let target = event.target
+
+    if (event.target.tagName === 'IMG') {
+        target = event.target.closest('button')
     }
-})
+
+    game.pressedKeys[target.dataset.key] = (
+        event.type === 'touchstart'
+        || event.type === 'mousedown'
+    )
+}
+
 
 function resetGame() {
     cancelAnimationFrame(game.animationRequest)
 
-    const gameOverMsg = document.querySelector('.game-over-msg')
+    const gameOverMsg = document.querySelector('.modal-basic__game-over-msg')
     if (gameOverMsg) gameOverMsg.remove()
 
-    const instructionsList = document.querySelector('.instructions-list')
+    const instructionsList = document.querySelector('.modal-basic__instructions-list')
     if (instructionsList) instructionsList.remove()
 
     game.updateHighestScore()
-    game.displayHighestScore(infoBar.querySelector('.highest-score'))
+    game.displayHighestScore(infoBar.querySelector('#highest-score'))
     game.resetScore()
     game.resetDifficulty()
 
@@ -62,9 +84,9 @@ function startGame() {
 
     game.score++
     game.updateDifficulty(paddle, ball)
-    game.displayCurrentScore(infoBar.querySelector('.current-score'))
+    game.displayCurrentScore(infoBar.querySelector('#current-score'))
     game.updateHighestScore()
-    game.displayHighestScore(infoBar.querySelector('.highest-score'))
+    game.displayHighestScore(infoBar.querySelector('#highest-score'))
 
     ball.draw()
     paddle.draw()

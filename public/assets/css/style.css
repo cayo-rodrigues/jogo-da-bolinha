@@ -7,8 +7,28 @@ header h3 {
   position: absolute;
   left: 20px;
 }
-.current-score h3 {
+#current-score h3 {
   top: 30px;
+}
+
+.arrow-btn {
+  position: absolute;
+  bottom: 0;
+  margin: 8px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  opacity: 0.5;
+  z-index: 9999;
+}
+
+.arrow-btn__right {
+  right: 0;
+}
+
+.arrow-btn img {
+  width: 80%;
 }
 
 .modal-basic {
@@ -39,27 +59,27 @@ header h3 {
   box-shadow: 0px 0px 10px gray;
 }
 
-.instructions-list {
+.modal-basic__instructions-list {
   background: lightblue;
   box-shadow: 0px 0px 10px blue;
 }
-.instructions-list h1 {
+.modal-basic__instructions-list h1 {
   font-size: 2rem;
 }
-.instructions-list ul {
+.modal-basic__instructions-list ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.instructions-list li {
+.modal-basic__instructions-list li {
   margin: 10px 0;
 }
 
-.game-over-msg {
+.modal-basic__game-over-msg {
   background: red;
   box-shadow: 0px 0px 10px red;
 }
-.game-over-msg h1 {
+.modal-basic__game-over-msg h1 {
   font-size: 2.75rem;
 }
 
@@ -79,7 +99,7 @@ header h3 {
     padding: 0 0 30px;
   }
 
-  .instructions-list {
+  .modal-basic__instructions-list {
     width: 525px;
     height: 350px;
     position: absolute;
@@ -87,11 +107,11 @@ header h3 {
     left: calc(50% - 262.5px);
   }
 
-  .instructions-list h1 {
+  .modal-basic__instructions-list h1 {
     font-size: 3rem;
   }
 
-  .game-over-msg {
+  .modal-basic__game-over-msg {
     width: 500px;
     height: 250px;
     position: absolute;
@@ -99,7 +119,13 @@ header h3 {
     left: calc(50% - 250px);
   }
 
-  .game-over-msg h1 {
+  .modal-basic__game-over-msg h1 {
     font-size: 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .arrow-btn {
+    display: none;
   }
 }

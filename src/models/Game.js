@@ -8,7 +8,7 @@ class Game {
     }
 
     displayInstructions() {
-        const container = document.querySelector('.instructions-container')
+        const container = document.querySelector('#instructions-container')
         const div       = document.createElement('div')
         const h1        = document.createElement('h1')
         const ul        = document.createElement('ul')
@@ -16,7 +16,7 @@ class Game {
         const li2       = document.createElement('li')
         const li3       = document.createElement('li')
 
-        div.className   = 'instructions-list modal-basic'
+        div.className   = 'modal-basic modal-basic__instructions-list'
         h1.innerText    = 'Instructions'
         li1.innerText   = 'Don\'t let the ball fall!'
         li2.innerText   = 'Use the arrow keys to move the block'
@@ -30,12 +30,12 @@ class Game {
     }
 
     displayGameOverMsg() {
-        const container = document.querySelector('.game-over-container')
+        const container = document.querySelector('#game-over-container')
         const div       = document.createElement('div')
         const h1        = document.createElement('h1')
         const span      = document.createElement('span')
 
-        div.className   = 'game-over-msg modal-basic'
+        div.className   = 'modal-basic modal-basic__game-over-msg'
         h1.innerText    = 'Game Over'
         span.innerText  = 'Press Enter/Return to reset'
 
