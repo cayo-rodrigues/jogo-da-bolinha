@@ -1,3 +1,5 @@
+import { IS_MOBILE_SCREEN, resetGame } from "../../index.js"
+
 class Game {
     constructor() {
         this.difficulty  = 1
@@ -20,7 +22,14 @@ class Game {
         h1.innerText    = 'Instructions'
         li1.innerText   = 'Don\'t let the ball fall!'
         li2.innerText   = 'Use the arrow keys to move the block'
-        li3.innerText   = 'Press enter/return to start/reset the game'
+        
+        if (IS_MOBILE_SCREEN) {
+            li3.innerText = 'Click here to start the game!'
+            li3.className = 'start-reset-btn start-reset-btn__instructions'
+            li3.onclick   = () => resetGame()
+        } else {
+            li3.innerText = 'Press enter/return to start/reset the game'
+        }
 
         div.append(h1, ul)
         ul.append(li1, li2, li3)
@@ -37,7 +46,14 @@ class Game {
 
         div.className   = 'modal-basic modal-basic__game-over-msg'
         h1.innerText    = 'Game Over'
-        span.innerText  = 'Press Enter/Return to reset'
+
+        if (IS_MOBILE_SCREEN) {
+            span.innerText = 'Click here to reset'
+            span.className = 'start-reset-btn start-reset-btn__game-over'
+            span.onclick   = () => resetGame()
+        } else {
+            span.innerText = 'Press Enter/Return to reset'
+        }
 
         div.append(h1, span)
 

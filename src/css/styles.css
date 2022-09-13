@@ -58,6 +58,21 @@ header h3 {
   border: 3px double black;
   box-shadow: 0px 0px 10px gray;
 }
+.modal-basic li.start-reset-btn,
+.modal-basic span.start-reset-btn {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 1rem;
+}
+.modal-basic li.start-reset-btn__instructions {
+  margin-top: 2rem;
+  background: lightgreen;
+}
+.modal-basic li.start-reset-btn:active,
+.modal-basic span.start-reset-btn:active {
+  filter: brightness(0.95);
+}
 
 .modal-basic__instructions-list {
   background: lightblue;

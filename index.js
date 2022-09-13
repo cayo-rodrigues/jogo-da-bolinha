@@ -2,6 +2,8 @@ import { Paddle } from "./src/models/Paddle.js"
 import { Ball } from "./src/models/Ball.js"
 import { Game } from "./src/models/Game.js"
 
+export const IS_MOBILE_SCREEN = window.innerWidth < 1024
+
 const infoBar = document.querySelector('header')
 
 const game = new Game()
@@ -58,7 +60,7 @@ function handleTouches(event) {
 }
 
 
-function resetGame() {
+export function resetGame() {
     cancelAnimationFrame(game.animationRequest)
 
     const gameOverMsg = document.querySelector('.modal-basic__game-over-msg')
@@ -106,4 +108,3 @@ function startGame() {
     }
     game.animationRequest = requestAnimationFrame(startGame)
 }
-// startGame()
